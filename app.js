@@ -1,7 +1,8 @@
 const startBtn = document.querySelector('#start')
 const screens = document.querySelectorAll('.screen')
 const timeList = document.querySelector('#time-list')
-let time = 0
+const timeEl = document.querySelector('#time')
+let time = 20
 
 
 
@@ -13,6 +14,14 @@ startBtn.addEventListener('click', (event) => {
 timeList.addEventListener('click', (event) => {
     if (event.target.classList.contains('time-btn')) {
         time = parseInt(event.target.getAttribute('data-time'))
-        
+        screens[1].classList.add('up')
+        startGame()
     }
 })
+
+//debug
+startGame()
+
+function startGame() {
+    timeEl.innerHTML = `00:${time}`
+}
